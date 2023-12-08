@@ -1,3 +1,10 @@
+<?php
+require_once("includes/config.php");
+// $queryFilms = "SELECT filmTitle, filmImage,filmDescription FROM Films WHERE filmID = 10";
+$queryFilms = "SELECT * FROM Films WHERE filmID = 15";
+$resultFilms = $mysqli->query($queryFilms);
+$obj = $resultFilms->fetch_object();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -23,7 +30,11 @@ include("includes/header.php");
       </div>
       <section class="homePage">
 		<!-- Featured Films Here -->
-      </section>
+    <?php
+    echo "<h2>{$obj->filmTitle}</h2>";
+    echo "<p>{$obj->filmDescription}</p>";
+    ?>
+    </section>
 		</main>
     </div>
 
